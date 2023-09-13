@@ -13,8 +13,8 @@ const {createApp} = Vue;
 createApp({
     data() {
         return {
-            title : "To do",
-            list : [
+            addNewTask : "",
+            toDoList : [
                 {
                     text : 'fare la spesa',
                     done : true  
@@ -39,12 +39,30 @@ createApp({
                     text : 'giocare a LoL',
                     done : true  
                 },
-            ],
+            ]
 
 
-        }
+        };
     },
     methods: {
-
+        addNewTask () {
+            this.toDoList.push({
+                text: this.addNewTask, 
+                done: false
+            });
+            this.addNewTask = '';
+        },
+        removeTask(index) {
+            this.toDoList.splice(index, 1);
+            console.log(this.list);
+        },
+        changeStatus (index) {
+            if (this.toDoList[index].done) {
+                this.toDoList[index].done = false;
+            } else {
+                this.toDoList[index].done = true;
+            }
+        }
     }
+
 }).mount('#app');
