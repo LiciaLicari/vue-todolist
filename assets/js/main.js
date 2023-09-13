@@ -13,6 +13,34 @@ const {createApp} = Vue;
 createApp({
     data() {
         return {
+            title : "To do",
+            list : [
+                {
+                    text : 'fare la spesa',
+                    done : true  
+                },
+                {
+                    text : 'portare fuori il cane',
+                    done : false  
+                },
+                {
+                    text : 'andare a pole',
+                    done : true  
+                },
+                {
+                    text : 'chiamare l\'estetista',
+                    done : true  
+                },
+                {
+                    text : 'ritirare il libro in libreria',
+                    done : false 
+                },
+                {
+                    text : 'giocare a LoL',
+                    done : true  
+                },
+            ],
+
 
         }
     },
