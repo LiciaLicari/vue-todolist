@@ -13,6 +13,7 @@ const {createApp} = Vue;
 createApp({
     data() {
         return {
+            errorWarning: "",
             newTask : "",
             toDoList : [
                 {
@@ -45,18 +46,25 @@ createApp({
         };
     },
     methods: {
-        addNewTask () {
-            this.toDoList.push({
-                text: this.newTask, 
-                done: false
-            });
-            this.newTask = '';
+        addNewTask() {
+
+           if (this.newTask !== ''){
+
+               this.toDoList.push({
+                   text: this.newTask, 
+                   done: false
+               });
+               this.newTask = '';
+               this.errorWarning = '';
+           } else {
+            this.errorWarning = "Task needed"
+           }
         },
         removeTask(index) {
             this.toDoList.splice(index, 1);
             console.log(this.list);
         },
-        changeStatus (index) {
+        changeStatus(index) {
             if (this.toDoList[index].done) {
                 this.toDoList[index].done = false;
             } else {
